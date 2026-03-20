@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: my-website
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: DATABASE_PATH
+        value: /var/data/database.db
+    disks:
+      - name: website-data
+        mountPath: /var/data
+        sizeGB: 1

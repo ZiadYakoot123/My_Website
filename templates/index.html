@@ -173,132 +173,44 @@
     </div>
 
     <div class="projects-grid">
-
-      <!-- Project 1: Smart Glasses -->
+      {% for project in projects %}
       <article class="project-card fade-in">
         <div class="project-media">
-          <!-- Replace the src below with your project image/video path -->
-          <img
-            src="{{ url_for('static', filename='images/projects/smart-glasses.jpg') }}"
-            alt="Smart Glasses project"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>👓</span><span>Add your image to static/images/projects/smart-glasses.jpg</span></div>'"
-          />
-          <span class="project-badge">AI Vision</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Smart Glasses — AI Vision Assistant</h3>
-          <p class="project-desc">
-            An assistive wearable device that brings independence to visually impaired users through
-            real-time object detection, OCR, voice feedback, and multilingual translation.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">YOLO</span>
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">TTS</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 2: AI Medical Endoscope -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <img
-            src="{{ url_for('static', filename='images/projects/medical-endoscope.jpg') }}"
-            alt="AI Medical Endoscope project"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🔬</span><span>Add your image to static/images/projects/medical-endoscope.jpg</span></div>'"
-          />
-          <span class="project-badge">Medical AI</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">AI Medical Endoscope</h3>
-          <p class="project-desc">
-            AI-enhanced endoscopy system that assists doctors in real-time lesion detection,
-            microscopic inspection mode switching, and clinical diagnosis support.
-          </p>
-          <div class="project-tags">
-            <span class="tag">TensorFlow</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Edge AI</span>
-            <span class="tag">Medical Devices</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 3: Vein Detection -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <img
-            src="{{ url_for('static', filename='images/projects/vein-detection.jpg') }}"
-            alt="Vein Detection System"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🩺</span><span>Add your image to static/images/projects/vein-detection.jpg</span></div>'"
-          />
-          <span class="project-badge">Healthcare</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">AI Vein Detection System</h3>
-          <p class="project-desc">
-            Near-infrared imaging combined with computer vision to accurately map veins for
-            medical procedures, reducing patient discomfort.
-          </p>
-          <div class="project-tags">
-            <span class="tag">OpenCV</span>
-            <span class="tag">NIR Imaging</span>
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">PyTorch</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 4: AI Agents -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <img
-            src="{{ url_for('static', filename='images/projects/ai-agents.jpg') }}"
-            alt="AI Agents and Automation"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🤖</span><span>Add your image to static/images/projects/ai-agents.jpg</span></div>'"
-          />
-          <span class="project-badge">Automation</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">AI Agents &amp; Automation Suite</h3>
-          <p class="project-desc">
-            End-to-end intelligent systems including customer service bots, inventory management
-            platforms, BMS/HVAC data analysis, and local LLM deployments.
-          </p>
-          <div class="project-tags">
-            <span class="tag">LLM</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">Python</span>
-            <span class="tag">React</span>
-            <span class="tag">REST API</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 5: Demo video card -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <!-- Replace with your actual video -->
+          {% if project.media_type == 'video' and project.media_path %}
           <video
-            src="{{ url_for('static', filename='videos/projects/demo.mp4') }}"
+            src="{{ url_for('static', filename=project.media_path) }}"
             autoplay muted loop playsinline
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🎬</span><span>Add your video to static/videos/projects/demo.mp4</span></div>'"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>{{ project.icon or '🚀' }}</span><span>Media file not found</span></div>'"
           ></video>
-          <span class="project-badge">Video Demo</span>
+          {% elif project.media_type == 'image' and project.media_path %}
+          <img
+            src="{{ url_for('static', filename=project.media_path) }}"
+            alt="{{ project.title }}"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>{{ project.icon or '🚀' }}</span><span>Media file not found</span></div>'"
+          />
+          {% else %}
+          <div class="project-placeholder">
+            <span class="ph-icon">{{ project.icon or "🚀" }}</span>
+            <span>No preview media</span>
+          </div>
+          {% endif %}
+          {% if project.badge %}
+          <span class="project-badge">{{ project.badge }}</span>
+          {% endif %}
         </div>
         <div class="project-body">
-          <h3 class="project-title">Project Video Demo</h3>
-          <p class="project-desc">
-            Place a short demo video in <code>static/videos/projects/demo.mp4</code> to showcase
-            your project live on this card.
-          </p>
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+          {% if project.tags %}
           <div class="project-tags">
-            <span class="tag">Demo</span>
+            {% for tag in project.tags.split(',') %}
+            <span class="tag">{{ tag.strip() }}</span>
+            {% endfor %}
           </div>
+          {% endif %}
         </div>
       </article>
+      {% endfor %}
 
       <!-- Add-More Placeholder -->
       <article class="project-card project-card--placeholder fade-in">
