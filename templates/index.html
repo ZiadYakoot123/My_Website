@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ziad Yakoot – AI Engineer & Embedded Systems Developer. Smart Glasses, Medical AI, Edge Computing." />
+  <title>Ziad Yakoot | AI Engineer & Embedded Systems Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Boxicons (icons) -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<!-- ===============================================================
+     NAVBAR
+     =============================================================== -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <a href="#hero" class="nav-logo">ZY.</a>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tech">Tech Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===============================================================
+     HERO
+     =============================================================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+
+    <!-- Avatar – replace src with your actual photo -->
+    <img
+      src="{{ url_for('static', filename='images/avatar.jpg') }}"
+      alt="Ziad Yakoot"
+      class="hero-avatar float-anim"
+      onerror="this.style.display='none'"
+    />
+
+    <h1 class="hero-title">Hi, I'm Ziad Yakoot 👋</h1>
+    <p class="hero-subtitle">AI Engineer &amp; Embedded Systems Developer</p>
+    <span id="typed-text"></span>
+
+    <div class="hero-badges">
+      <span class="badge badge-blue">🔬 Medical AI</span>
+      <span class="badge badge-purple">👓 Smart Glasses</span>
+      <span class="badge badge-red">⚙️ Edge Computing</span>
+      <span class="badge badge-blue">🤖 AI Agents</span>
+      <span class="badge badge-purple">🍓 Raspberry Pi</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">
+        <i class="bx bx-send"></i> Hire Me
+      </a>
+      <a href="#projects" class="btn btn-outline">
+        <i class="bx bx-code-alt"></i> View Projects
+      </a>
+    </div>
+
+    <div class="social-row">
+      <a href="https://www.linkedin.com/in/ziadyakoot" target="_blank" rel="noopener" class="social-btn linkedin">
+        <i class="bx bxl-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/ZiadYakoot123" target="_blank" rel="noopener" class="social-btn github">
+        <i class="bx bxl-github"></i> GitHub
+      </a>
+      <a href="mailto:ziadyakout6@gmail.com" class="social-btn email">
+        <i class="bx bx-envelope"></i> Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===============================================================
+     ABOUT
+     =============================================================== -->
+<section id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title">About Me</h2>
+      <p class="section-desc">Passionate engineer building AI-driven products that solve real problems in healthcare and smart devices.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <h3>Building the Future, One AI at a Time</h3>
+        <p>
+          I'm an AI &amp; Embedded Systems engineer specialising in bringing intelligent solutions to life
+          — from custom deep-learning models running on Raspberry Pi to full-stack AI-powered web
+          applications.
+        </p>
+        <div class="about-items">
+          <div class="about-item">
+            <span class="icon">🔬</span>
+            <div>
+              <strong>AI Medical Devices</strong>
+              <span>Developing AI-powered endoscopes and vein detection systems for real-time clinical support.</span>
+            </div>
+          </div>
+          <div class="about-item">
+            <span class="icon">👓</span>
+            <div>
+              <strong>Smart Glasses</strong>
+              <span>Assistive wearable for visually impaired users — object detection, OCR, voice feedback.</span>
+            </div>
+          </div>
+          <div class="about-item">
+            <span class="icon">🤖</span>
+            <div>
+              <strong>AI Agents &amp; Automation</strong>
+              <span>End-to-end intelligent systems for business automation, chatbots, and data analysis.</span>
+            </div>
+          </div>
+          <div class="about-item">
+            <span class="icon">🌐</span>
+            <div>
+              <strong>Full-Stack Development</strong>
+              <span>React + Python web apps with REST APIs, authentication, and cloud deployment.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid fade-in">
+        <div class="stat-card">
+          <div class="stat-num" data-count="3" data-suffix="+">3+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-count="10" data-suffix="+">10+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-count="5" data-suffix="+">5+</div>
+          <div class="stat-label">AI Models Deployed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" data-count="100" data-suffix="%">100%</div>
+          <div class="stat-label">Dedication</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===============================================================
+     PROJECTS
+     =============================================================== -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">My Work</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-desc">Real-world AI and embedded systems solutions I've built from the ground up.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Project 1: Smart Glasses -->
+      <article class="project-card fade-in">
+        <div class="project-media">
+          <!-- Replace the src below with your project image/video path -->
+          <img
+            src="{{ url_for('static', filename='images/projects/smart-glasses.jpg') }}"
+            alt="Smart Glasses project"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>👓</span><span>Add your image to static/images/projects/smart-glasses.jpg</span></div>'"
+          />
+          <span class="project-badge">AI Vision</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Smart Glasses — AI Vision Assistant</h3>
+          <p class="project-desc">
+            An assistive wearable device that brings independence to visually impaired users through
+            real-time object detection, OCR, voice feedback, and multilingual translation.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">YOLO</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">TTS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2: AI Medical Endoscope -->
+      <article class="project-card fade-in">
+        <div class="project-media">
+          <img
+            src="{{ url_for('static', filename='images/projects/medical-endoscope.jpg') }}"
+            alt="AI Medical Endoscope project"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🔬</span><span>Add your image to static/images/projects/medical-endoscope.jpg</span></div>'"
+          />
+          <span class="project-badge">Medical AI</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">AI Medical Endoscope</h3>
+          <p class="project-desc">
+            AI-enhanced endoscopy system that assists doctors in real-time lesion detection,
+            microscopic inspection mode switching, and clinical diagnosis support.
+          </p>
+          <div class="project-tags">
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Edge AI</span>
+            <span class="tag">Medical Devices</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3: Vein Detection -->
+      <article class="project-card fade-in">
+        <div class="project-media">
+          <img
+            src="{{ url_for('static', filename='images/projects/vein-detection.jpg') }}"
+            alt="Vein Detection System"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🩺</span><span>Add your image to static/images/projects/vein-detection.jpg</span></div>'"
+          />
+          <span class="project-badge">Healthcare</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">AI Vein Detection System</h3>
+          <p class="project-desc">
+            Near-infrared imaging combined with computer vision to accurately map veins for
+            medical procedures, reducing patient discomfort.
+          </p>
+          <div class="project-tags">
+            <span class="tag">OpenCV</span>
+            <span class="tag">NIR Imaging</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">PyTorch</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4: AI Agents -->
+      <article class="project-card fade-in">
+        <div class="project-media">
+          <img
+            src="{{ url_for('static', filename='images/projects/ai-agents.jpg') }}"
+            alt="AI Agents and Automation"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🤖</span><span>Add your image to static/images/projects/ai-agents.jpg</span></div>'"
+          />
+          <span class="project-badge">Automation</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">AI Agents &amp; Automation Suite</h3>
+          <p class="project-desc">
+            End-to-end intelligent systems including customer service bots, inventory management
+            platforms, BMS/HVAC data analysis, and local LLM deployments.
+          </p>
+          <div class="project-tags">
+            <span class="tag">LLM</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">Python</span>
+            <span class="tag">React</span>
+            <span class="tag">REST API</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5: Demo video card -->
+      <article class="project-card fade-in">
+        <div class="project-media">
+          <!-- Replace with your actual video -->
+          <video
+            src="{{ url_for('static', filename='videos/projects/demo.mp4') }}"
+            autoplay muted loop playsinline
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🎬</span><span>Add your video to static/videos/projects/demo.mp4</span></div>'"
+          ></video>
+          <span class="project-badge">Video Demo</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Project Video Demo</h3>
+          <p class="project-desc">
+            Place a short demo video in <code>static/videos/projects/demo.mp4</code> to showcase
+            your project live on this card.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Demo</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Add-More Placeholder -->
+      <article class="project-card project-card--placeholder fade-in">
+        <div class="project-media">
+          <div class="project-placeholder">
+            <span class="ph-icon">➕</span>
+            <span>More projects coming soon</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Your Next Project</h3>
+          <p class="project-desc">
+            Drop an image in <code>static/images/projects/</code> and add a new card here to
+            showcase your work.
+          </p>
+        </div>
+      </article>
+
+    </div><!-- /projects-grid -->
+  </div>
+</section>
+
+<!-- ===============================================================
+     SERVICES
+     =============================================================== -->
+<section id="services">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">What I Offer</span>
+      <h2 class="section-title">Services</h2>
+      <p class="section-desc">From AI model development to full hardware integration — I deliver end-to-end solutions.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-icon">🤖</div>
+        <h3 class="service-title">AI &amp; Machine Learning</h3>
+        <p class="service-desc">Custom AI models tailored to your specific domain and deployment environment.</p>
+        <ul class="service-features">
+          <li>Custom CV &amp; NLP models</li>
+          <li>Chatbots &amp; AI agents</li>
+          <li>Local LLM deployment</li>
+          <li>Data analysis pipelines</li>
+        </ul>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">⚙️</div>
+        <h3 class="service-title">Embedded Systems</h3>
+        <p class="service-desc">Real-time AI on the edge — from Raspberry Pi to custom IoT solutions.</p>
+        <ul class="service-features">
+          <li>Raspberry Pi / IoT solutions</li>
+          <li>Sensor integration</li>
+          <li>Real-time edge AI</li>
+          <li>Arduino prototyping</li>
+        </ul>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">🏥</div>
+        <h3 class="service-title">Healthcare Technology</h3>
+        <p class="service-desc">AI-assisted medical devices and smart wearables that transform patient care.</p>
+        <ul class="service-features">
+          <li>Medical device prototyping</li>
+          <li>AI-assisted diagnostics</li>
+          <li>Smart wearable solutions</li>
+          <li>Clinical imaging AI</li>
+        </ul>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-icon">🌐</div>
+        <h3 class="service-title">Software Development</h3>
+        <p class="service-desc">Production-ready full-stack applications with clean APIs and modern UX.</p>
+        <ul class="service-features">
+          <li>Full-stack apps (React + Python)</li>
+          <li>REST API development</li>
+          <li>Automation systems</li>
+          <li>Database design</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===============================================================
+     TECH STACK
+     =============================================================== -->
+<section id="tech">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Skills</span>
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="section-desc">The tools and technologies I use to build AI-powered solutions.</p>
+    </div>
+
+    <div class="fade-in">
+
+      <div class="tech-category">
+        <h3>Languages</h3>
+        <div class="tech-pills">
+          <span class="tech-pill"><span class="t-icon">🐍</span> Python</span>
+          <span class="tech-pill"><span class="t-icon">⚡</span> C++</span>
+          <span class="tech-pill"><span class="t-icon">🟨</span> JavaScript</span>
+          <span class="tech-pill"><span class="t-icon">🔷</span> C</span>
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>AI &amp; Data</h3>
+        <div class="tech-pills">
+          <span class="tech-pill"><span class="t-icon">🔶</span> TensorFlow</span>
+          <span class="tech-pill"><span class="t-icon">🔥</span> PyTorch</span>
+          <span class="tech-pill"><span class="t-icon">📷</span> OpenCV</span>
+          <span class="tech-pill"><span class="t-icon">🎯</span> YOLO</span>
+          <span class="tech-pill"><span class="t-icon">🦜</span> LangChain</span>
+          <span class="tech-pill"><span class="t-icon">🐼</span> Pandas / NumPy</span>
+          <span class="tech-pill"><span class="t-icon">🤗</span> Hugging Face</span>
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Embedded &amp; Hardware</h3>
+        <div class="tech-pills">
+          <span class="tech-pill"><span class="t-icon">🍓</span> Raspberry Pi</span>
+          <span class="tech-pill"><span class="t-icon">🔌</span> Arduino</span>
+          <span class="tech-pill"><span class="t-icon">📡</span> MQTT / IoT</span>
+          <span class="tech-pill"><span class="t-icon">🔬</span> NIR Imaging</span>
+        </div>
+      </div>
+
+      <div class="tech-category">
+        <h3>Web &amp; Backend</h3>
+        <div class="tech-pills">
+          <span class="tech-pill"><span class="t-icon">⚗️</span> Flask</span>
+          <span class="tech-pill"><span class="t-icon">🚀</span> FastAPI</span>
+          <span class="tech-pill"><span class="t-icon">⚛️</span> React</span>
+          <span class="tech-pill"><span class="t-icon">🗄️</span> SQLite / PostgreSQL</span>
+          <span class="tech-pill"><span class="t-icon">🐙</span> Git / GitHub</span>
+          <span class="tech-pill"><span class="t-icon">🐳</span> Docker</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===============================================================
+     GITHUB STATS
+     =============================================================== -->
+<section id="stats">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Open Source</span>
+      <h2 class="section-title">GitHub Stats</h2>
+    </div>
+    <div class="stats-imgs fade-in">
+      <img
+        src="https://github-readme-stats.vercel.app/api?username=ZiadYakoot123&show_icons=true&theme=tokyonight&hide_border=true&count_private=true"
+        alt="Ziad's GitHub Stats"
+        loading="lazy"
+      />
+      <img
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=ZiadYakoot123&layout=compact&theme=tokyonight&hide_border=true"
+        alt="Top Languages"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ===============================================================
+     CONTACT
+     =============================================================== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Contact Me</h2>
+      <p class="section-desc">Have a project in mind? Let's build something amazing together.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Left: info -->
+      <div class="contact-info fade-in">
+        <h3>Let's Work Together</h3>
+        <p>
+          Whether you need a custom AI model, an embedded system prototype, a healthcare device,
+          or a full-stack application — I'm here to help turn your ideas into reality.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:ziadyakout6@gmail.com" class="contact-link">
+            <span class="cl-icon">✉️</span>
+            <div class="cl-text">
+              <small>Email</small>
+              <strong>ziadyakout6@gmail.com</strong>
+            </div>
+          </a>
+          <a href="mailto:Z.Yakoot72167@student.aast.edu" class="contact-link">
+            <span class="cl-icon">🎓</span>
+            <div class="cl-text">
+              <small>Academic Email</small>
+              <strong>Z.Yakoot72167@student.aast.edu</strong>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/ziadyakoot" target="_blank" rel="noopener" class="contact-link">
+            <span class="cl-icon">💼</span>
+            <div class="cl-text">
+              <small>LinkedIn</small>
+              <strong>linkedin.com/in/ziadyakoot</strong>
+            </div>
+          </a>
+          <a href="https://github.com/ZiadYakoot123" target="_blank" rel="noopener" class="contact-link">
+            <span class="cl-icon">🐙</span>
+            <div class="cl-text">
+              <small>GitHub</small>
+              <strong>github.com/ZiadYakoot123</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="form-card fade-in">
+        <div class="form-tabs">
+          <button class="form-tab active" data-target="panel-service">Request a Service</button>
+          <button class="form-tab" data-target="panel-order">Order a Product</button>
+        </div>
+
+        <!-- Service Request Form -->
+        <div class="form-panel active" id="panel-service">
+          <form id="service-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="s-name">Full Name *</label>
+                <input type="text" id="s-name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="s-email">Email *</label>
+                <input type="email" id="s-email" name="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="s-phone">Phone</label>
+                <input type="tel" id="s-phone" name="phone" placeholder="+1 234 567 8900" />
+              </div>
+              <div class="form-group">
+                <label for="s-service">Service *</label>
+                <select id="s-service" name="service" required>
+                  <option value="" disabled selected>Select a service</option>
+                  <option>AI &amp; Machine Learning</option>
+                  <option>Embedded Systems</option>
+                  <option>Healthcare Technology</option>
+                  <option>Full-Stack Development</option>
+                  <option>AI Agents &amp; Automation</option>
+                  <option>Consulting &amp; Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="s-message">Project Details *</label>
+              <textarea id="s-message" name="message" placeholder="Describe your project, goals, and timeline…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" data-label="Send Request">
+              <i class="bx bx-send"></i> Send Request
+            </button>
+            <div class="form-message"></div>
+          </form>
+        </div>
+
+        <!-- Product Order Form -->
+        <div class="form-panel" id="panel-order">
+          <form id="order-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="o-name">Full Name *</label>
+                <input type="text" id="o-name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="o-email">Email *</label>
+                <input type="email" id="o-email" name="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="o-phone">Phone</label>
+                <input type="tel" id="o-phone" name="phone" placeholder="+1 234 567 8900" />
+              </div>
+              <div class="form-group">
+                <label for="o-quantity">Quantity</label>
+                <input type="number" id="o-quantity" name="quantity" value="1" min="1" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="o-product">Product *</label>
+              <select id="o-product" name="product" required>
+                <option value="" disabled selected>Select a product</option>
+                <option>Smart Glasses (AI Vision Assistant)</option>
+                <option>AI Medical Endoscope</option>
+                <option>AI Vein Detection System</option>
+                <option>Custom AI Agent / Chatbot</option>
+                <option>Custom Hardware Prototype</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="o-message">Additional Notes</label>
+              <textarea id="o-message" name="message" placeholder="Specifications, custom requirements, delivery notes…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" data-label="Place Order">
+              <i class="bx bx-cart"></i> Place Order
+            </button>
+            <div class="form-message"></div>
+          </form>
+        </div>
+
+      </div><!-- /form-card -->
+    </div><!-- /contact-grid -->
+  </div>
+</section>
+
+<!-- ===============================================================
+     FOOTER
+     =============================================================== -->
+<footer>
+  <div class="footer-logo">Ziad Yakoot</div>
+
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/ziadyakoot" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <i class="bx bxl-linkedin"></i>
+    </a>
+    <a href="https://github.com/ZiadYakoot123" target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="bx bxl-github"></i>
+    </a>
+    <a href="mailto:ziadyakout6@gmail.com" aria-label="Email">
+      <i class="bx bx-envelope"></i>
+    </a>
+  </div>
+
+  <p>AI Engineer &amp; Embedded Systems Developer &nbsp;|&nbsp; Building AI-Powered Solutions</p>
+  <p class="footer-copy">
+    &copy; <span id="year"></span> Ziad Yakoot. All rights reserved.
+  </p>
+</footer>
+
+<!-- Scroll-to-top button -->
+<button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+<!-- Main JS -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
