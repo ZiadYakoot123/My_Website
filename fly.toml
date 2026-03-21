@@ -1,0 +1,46 @@
+# Fly.io configuration for Ziad Yakoot portfolio website
+app = "ziad-yakoot"
+primary_region = "iad"
+
+[build]
+  image = "ziad-yakoot:latest"
+
+[env]
+  FLASK_ENV = "production"
+  PYTHONUNBUFFERED = "true"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  
+  [services.concurrency]
+    type = "requests"
+    hard_limit = 1000
+    soft_limit = 800
+
+[checks]
+  [checks.alive]
+    grace_period = "5s"
+    interval = "30s"
+    method = "get"
+    path = "/"
+    protocol = "http"
+    timeout = "5s"
+    type = "http"
+
+# Database volumes (SQLite storage)
+[[mounts]]
+  source = "data"
+  destination = "/app/data"
+  initial_size = "1gb"
+
+# Metrics
+[metrics]
+  port = 9090

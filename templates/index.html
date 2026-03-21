@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,8 +16,11 @@
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  
+  <!-- Google Fonts for Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body id="body-root">
 
 <!-- ===============================================================
      NAVBAR
@@ -26,12 +29,14 @@
   <a href="#hero" class="nav-logo">ZY.</a>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#tech">Tech Stack</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-en="About" data-ar="عني">About</a></li>
+    <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+    <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+    <li><a href="#tech" data-en="Tech Stack" data-ar="المهارات">Tech Stack</a></li>
+    <li><a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a></li>
   </ul>
+
+  <button class="language-toggle" id="language-toggle" aria-label="Toggle language">العربية</button>
 
   <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -53,8 +58,8 @@
       onerror="this.style.display='none'"
     />
 
-    <h1 class="hero-title">Hi, I'm Ziad Yakoot 👋</h1>
-    <p class="hero-subtitle">AI Engineer &amp; Embedded Systems Developer</p>
+    <h1 class="hero-title"><span data-en="Hi, I'm Ziad Yakoot" data-ar="مرحبا، أنا زياد ياقوت">Hi, I'm Ziad Yakoot</span> <span class="hero-emoji">👋</span></h1>
+    <p class="hero-subtitle" data-en="AI Engineer &amp; Embedded Systems Developer" data-ar="مهندس ذكاء اصطناعي ومطور الأنظمة المدمجة">AI Engineer &amp; Embedded Systems Developer</p>
     <span id="typed-text"></span>
 
     <div class="hero-badges">
@@ -66,10 +71,10 @@
     </div>
 
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">
+      <a href="#contact" class="btn btn-primary" data-en="Hire Me" data-ar="وظفني">
         <i class="bx bx-send"></i> Hire Me
       </a>
-      <a href="#projects" class="btn btn-outline">
+      <a href="#projects" class="btn btn-outline" data-en="View Projects" data-ar="عرض المشاريع">
         <i class="bx bx-code-alt"></i> View Projects
       </a>
     </div>
@@ -94,14 +99,14 @@
 <section id="about">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Who I Am</span>
-      <h2 class="section-title">About Me</h2>
-      <p class="section-desc">Passionate engineer building AI-driven products that solve real problems in healthcare and smart devices.</p>
+      <span class="section-tag" data-en="Who I Am" data-ar="من أنا">Who I Am</span>
+      <h2 class="section-title" data-en="About Me" data-ar="عني">About Me</h2>
+      <p class="section-desc" data-en="Passionate engineer building AI-driven products that solve real problems in healthcare and smart devices." data-ar="مهندس شغوف ببناء منتجات مدفوعة بالذكاء الاصطناعي تحل مشاكل حقيقية في الرعاية الصحية والأجهزة الذكية.">Passionate engineer building AI-driven products that solve real problems in healthcare and smart devices.</p>
     </div>
 
     <div class="about-grid">
       <div class="about-text fade-in">
-        <h3>Building the Future, One AI at a Time</h3>
+        <h3 data-en="Building the Future, One AI at a Time" data-ar="بناء المستقبل، ذكاء اصطناعي تلو الآخر">Building the Future, One AI at a Time</h3>
         <p>
           I'm an AI &amp; Embedded Systems engineer specialising in bringing intelligent solutions to life
           — from custom deep-learning models running on Raspberry Pi to full-stack AI-powered web
@@ -111,29 +116,29 @@
           <div class="about-item">
             <span class="icon">🔬</span>
             <div>
-              <strong>AI Medical Devices</strong>
-              <span>Developing AI-powered endoscopes and vein detection systems for real-time clinical support.</span>
+              <strong data-en="AI Medical Devices" data-ar="أجهزة ذكية طبية">AI Medical Devices</strong>
+              <span data-en="Developing AI-powered endoscopes and vein detection systems for real-time clinical support." data-ar="تطوير مناظير ذكية وأنظمة كشف الأوردة للدعم السريري بالوقت الفعلي.">Developing AI-powered endoscopes and vein detection systems for real-time clinical support.</span>
             </div>
           </div>
           <div class="about-item">
             <span class="icon">👓</span>
             <div>
-              <strong>Smart Glasses</strong>
-              <span>Assistive wearable for visually impaired users — object detection, OCR, voice feedback.</span>
+              <strong data-en="Smart Glasses" data-ar="نظارات ذكية">Smart Glasses</strong>
+              <span data-en="Assistive wearable for visually impaired users — object detection, OCR, voice feedback." data-ar="أجهزة مساعدة قابلة للارتداء للمستخدمين ضعاف البصر - كشف الكائنات والموجودات والرجع الصوتي.">Assistive wearable for visually impaired users — object detection, OCR, voice feedback.</span>
             </div>
           </div>
           <div class="about-item">
             <span class="icon">🤖</span>
             <div>
-              <strong>AI Agents &amp; Automation</strong>
-              <span>End-to-end intelligent systems for business automation, chatbots, and data analysis.</span>
+              <strong data-en="AI Agents &amp; Automation" data-ar="وكلاء ذكية وأتمتة">AI Agents &amp; Automation</strong>
+              <span data-en="End-to-end intelligent systems for business automation, chatbots, and data analysis." data-ar="أنظمة ذكية شاملة لأتمتة الأعمال والروبوتات الحوارية وتحليل البيانات.">End-to-end intelligent systems for business automation, chatbots, and data analysis.</span>
             </div>
           </div>
           <div class="about-item">
             <span class="icon">🌐</span>
             <div>
-              <strong>Full-Stack Development</strong>
-              <span>React + Python web apps with REST APIs, authentication, and cloud deployment.</span>
+              <strong data-en="Full-Stack Development" data-ar="تطوير التطبيقات الشاملة">Full-Stack Development</strong>
+              <span data-en="React + Python web apps with REST APIs, authentication, and cloud deployment." data-ar="تطبيقات ويب React + Python مع واجهات برمجية REST والمصادقة والنشر السحابي.">React + Python web apps with REST APIs, authentication, and cloud deployment.</span>
             </div>
           </div>
         </div>
@@ -142,19 +147,19 @@
       <div class="stats-grid fade-in">
         <div class="stat-card">
           <div class="stat-num" data-count="3" data-suffix="+">3+</div>
-          <div class="stat-label">Years Experience</div>
+          <div class="stat-label" data-en="Years Experience" data-ar="سنوات من الخبرة">Years Experience</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" data-count="10" data-suffix="+">10+</div>
-          <div class="stat-label">Projects Completed</div>
+          <div class="stat-label" data-en="Projects Completed" data-ar="مشاريع مكتملة">Projects Completed</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" data-count="5" data-suffix="+">5+</div>
-          <div class="stat-label">AI Models Deployed</div>
+          <div class="stat-label" data-en="AI Models Deployed" data-ar="نماذج ذكاء اصطناعي مطلقة">AI Models Deployed</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" data-count="100" data-suffix="%">100%</div>
-          <div class="stat-label">Dedication</div>
+          <div class="stat-label" data-en="Dedication" data-ar="التفاني">Dedication</div>
         </div>
       </div>
     </div>
@@ -167,9 +172,9 @@
 <section id="projects">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">My Work</span>
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">Real-world AI and embedded systems solutions I've built from the ground up.</p>
+      <span class="section-tag" data-en="My Work" data-ar="أعمالي">My Work</span>
+      <h2 class="section-title" data-en="Featured Projects" data-ar="المشاريع المميزة">Featured Projects</h2>
+      <p class="section-desc" data-en="Real-world AI and embedded systems solutions I've built from the ground up." data-ar="حلول واقعية في مجال الذكاء الاصطناعي والأنظمة المدمجة التي بنيتها من الصفر.">Real-world AI and embedded systems solutions I've built from the ground up.</p>
     </div>
 
     <div class="projects-grid">
@@ -239,16 +244,16 @@
 <section id="services">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">What I Offer</span>
-      <h2 class="section-title">Services</h2>
-      <p class="section-desc">From AI model development to full hardware integration — I deliver end-to-end solutions.</p>
+      <span class="section-tag" data-en="What I Offer" data-ar="ما أقدمه">What I Offer</span>
+      <h2 class="section-title" data-en="Services" data-ar="الخدمات">Services</h2>
+      <p class="section-desc" data-en="From AI model development to full hardware integration — I deliver end-to-end solutions." data-ar="من تطوير نماذج الذكاء الاصطناعي إلى التكامل الكامل للأجهزة - أقدم حلولاً شاملة.">From AI model development to full hardware integration — I deliver end-to-end solutions.</p>
     </div>
 
     <div class="services-grid">
 
       <div class="service-card fade-in">
         <div class="service-icon">🤖</div>
-        <h3 class="service-title">AI &amp; Machine Learning</h3>
+        <h3 class="service-title" data-en="AI & Machine Learning" data-ar="الذكاء الاصطناعي والتعلم الآلي">AI & Machine Learning</h3>
         <p class="service-desc">Custom AI models tailored to your specific domain and deployment environment.</p>
         <ul class="service-features">
           <li>Custom CV &amp; NLP models</li>
@@ -260,7 +265,7 @@
 
       <div class="service-card fade-in">
         <div class="service-icon">⚙️</div>
-        <h3 class="service-title">Embedded Systems</h3>
+        <h3 class="service-title" data-en="Embedded Systems" data-ar="الأنظمة المدمجة">Embedded Systems</h3>
         <p class="service-desc">Real-time AI on the edge — from Raspberry Pi to custom IoT solutions.</p>
         <ul class="service-features">
           <li>Raspberry Pi / IoT solutions</li>
@@ -272,7 +277,7 @@
 
       <div class="service-card fade-in">
         <div class="service-icon">🏥</div>
-        <h3 class="service-title">Healthcare Technology</h3>
+        <h3 class="service-title" data-en="Healthcare Technology" data-ar="تقنيات الرعاية الصحية">Healthcare Technology</h3>
         <p class="service-desc">AI-assisted medical devices and smart wearables that transform patient care.</p>
         <ul class="service-features">
           <li>Medical device prototyping</li>
@@ -284,7 +289,7 @@
 
       <div class="service-card fade-in">
         <div class="service-icon">🌐</div>
-        <h3 class="service-title">Software Development</h3>
+        <h3 class="service-title" data-en="Software Development" data-ar="تطوير البرامج">Software Development</h3>
         <p class="service-desc">Production-ready full-stack applications with clean APIs and modern UX.</p>
         <ul class="service-features">
           <li>Full-stack apps (React + Python)</li>
@@ -304,15 +309,15 @@
 <section id="tech">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Skills</span>
-      <h2 class="section-title">Tech Stack</h2>
-      <p class="section-desc">The tools and technologies I use to build AI-powered solutions.</p>
+      <span class="section-tag" data-en="Skills" data-ar="المهارات">Skills</span>
+      <h2 class="section-title" data-en="Tech Stack" data-ar="مكدس التقنيات">Tech Stack</h2>
+      <p class="section-desc" data-en="The tools and technologies I use to build AI-powered solutions." data-ar="الأدوات والتقنيات التي استخدمها لبناء حلول مدفوعة بالذكاء الاصطناعي.">The tools and technologies I use to build AI-powered solutions.</p>
     </div>
 
     <div class="fade-in">
 
       <div class="tech-category">
-        <h3>Languages</h3>
+        <h3 data-en="Languages" data-ar="لغات البرمجة">Languages</h3>
         <div class="tech-pills">
           <span class="tech-pill"><span class="t-icon">🐍</span> Python</span>
           <span class="tech-pill"><span class="t-icon">⚡</span> C++</span>
@@ -322,7 +327,7 @@
       </div>
 
       <div class="tech-category">
-        <h3>AI &amp; Data</h3>
+        <h3 data-en="AI & Data" data-ar="الذكاء الاصطناعي والبيانات">AI &amp; Data</h3>
         <div class="tech-pills">
           <span class="tech-pill"><span class="t-icon">🔶</span> TensorFlow</span>
           <span class="tech-pill"><span class="t-icon">🔥</span> PyTorch</span>
@@ -335,7 +340,7 @@
       </div>
 
       <div class="tech-category">
-        <h3>Embedded &amp; Hardware</h3>
+        <h3 data-en="Embedded & Hardware" data-ar="الأنظمة المدمجة والأجهزة">Embedded &amp; Hardware</h3>
         <div class="tech-pills">
           <span class="tech-pill"><span class="t-icon">🍓</span> Raspberry Pi</span>
           <span class="tech-pill"><span class="t-icon">🔌</span> Arduino</span>
@@ -345,7 +350,7 @@
       </div>
 
       <div class="tech-category">
-        <h3>Web &amp; Backend</h3>
+        <h3 data-en="Web & Backend" data-ar="الويب والخادم الخلفي">Web &amp; Backend</h3>
         <div class="tech-pills">
           <span class="tech-pill"><span class="t-icon">⚗️</span> Flask</span>
           <span class="tech-pill"><span class="t-icon">🚀</span> FastAPI</span>
@@ -366,8 +371,8 @@
 <section id="stats">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Open Source</span>
-      <h2 class="section-title">GitHub Stats</h2>
+      <span class="section-tag" data-en="Open Source" data-ar="مفتوح المصدر">Open Source</span>
+      <h2 class="section-title" data-en="GitHub Stats" data-ar="إحصائيات GitHub">GitHub Stats</h2>
     </div>
     <div class="stats-imgs fade-in">
       <img
@@ -390,17 +395,17 @@
 <section id="contact">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Get In Touch</span>
-      <h2 class="section-title">Contact Me</h2>
-      <p class="section-desc">Have a project in mind? Let's build something amazing together.</p>
+      <span class="section-tag" data-en="Get In Touch" data-ar="التواصل معي">Get In Touch</span>
+      <h2 class="section-title" data-en="Contact Me" data-ar="اتصل بي">Contact Me</h2>
+      <p class="section-desc" data-en="Have a project in mind? Let's build something amazing together." data-ar="هل لديك مشروع في العقل؟ دعنا نبني شيئاً رائعاً معاً.">Have a project in mind? Let's build something amazing together.</p>
     </div>
 
     <div class="contact-grid">
 
       <!-- Left: info -->
       <div class="contact-info fade-in">
-        <h3>Let's Work Together</h3>
-        <p>
+        <h3 data-en="Let's Work Together" data-ar="دعنا نعمل معاً">Let's Work Together</h3>
+        <p data-en="Whether you need a custom AI model, an embedded system prototype, a healthcare device, or a full-stack application — I'm here to help turn your ideas into reality." data-ar="سواء كنت تحتاج إلى نموذج ذكاء اصطناعي مخصص أو نموذج نظام مدمج أو جهاز رعاية صحية أو تطبيق شامل - أنا هنا لمساعدتك على تحويل أفكارك إلى واقع.">
           Whether you need a custom AI model, an embedded system prototype, a healthcare device,
           or a full-stack application — I'm here to help turn your ideas into reality.
         </p>
@@ -409,28 +414,28 @@
           <a href="mailto:ziadyakout6@gmail.com" class="contact-link">
             <span class="cl-icon">✉️</span>
             <div class="cl-text">
-              <small>Email</small>
+              <small data-en="Email" data-ar="البريد الإلكتروني">Email</small>
               <strong>ziadyakout6@gmail.com</strong>
             </div>
           </a>
           <a href="mailto:Z.Yakoot72167@student.aast.edu" class="contact-link">
             <span class="cl-icon">🎓</span>
             <div class="cl-text">
-              <small>Academic Email</small>
+              <small data-en="Academic Email" data-ar="البريد المؤسسي">Academic Email</small>
               <strong>Z.Yakoot72167@student.aast.edu</strong>
             </div>
           </a>
           <a href="https://www.linkedin.com/in/ziadyakoot" target="_blank" rel="noopener" class="contact-link">
             <span class="cl-icon">💼</span>
             <div class="cl-text">
-              <small>LinkedIn</small>
+              <small data-en="LinkedIn" data-ar="لينكداين">LinkedIn</small>
               <strong>linkedin.com/in/ziadyakoot</strong>
             </div>
           </a>
           <a href="https://github.com/ZiadYakoot123" target="_blank" rel="noopener" class="contact-link">
             <span class="cl-icon">🐙</span>
             <div class="cl-text">
-              <small>GitHub</small>
+              <small data-en="GitHub" data-ar="GitHub">GitHub</small>
               <strong>github.com/ZiadYakoot123</strong>
             </div>
           </a>
@@ -564,6 +569,7 @@
 <button id="scroll-top" aria-label="Scroll to top">↑</button>
 
 <!-- Main JS -->
+<script src="{{ url_for('static', filename='js/language.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
