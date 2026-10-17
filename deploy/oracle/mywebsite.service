@@ -1,0 +1,15 @@
+[Unit]
+Description=Gunicorn for My_Website Flask app
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/opt/my_website
+EnvironmentFile=/opt/my_website/.env
+ExecStart=/opt/my_website/.venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

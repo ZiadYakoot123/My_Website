@@ -2,11 +2,11 @@
    Typing effect
    ========================================================= */
 const TYPED_STRINGS = [
-  "AI Engineer | Embedded Systems Developer",
-  "Builder of AI-Powered Hardware Solutions",
-  "Smart Glasses | Medical AI | Edge Computing",
-  "Computer Vision & NLP Specialist",
-  "Raspberry Pi & IoT Enthusiast",
+  "Pharmaceutical Process Intelligence",
+  "GMP Knowledge Systems & AI Agents",
+  "Medical Device AI & Computer Vision",
+  "Predictive Maintenance for Industry",
+  "Python Automation from Data to Deployment",
 ];
 
 (function initTyping() {
@@ -178,7 +178,20 @@ async function submitForm(formId, endpoint) {
 
 document.getElementById("service-form")?.addEventListener("submit", e => {
   e.preventDefault();
-  submitForm("service-form", "/api/contact");
+  const form = e.currentTarget;
+  const data = Object.fromEntries(new FormData(form).entries());
+  const subject = `Service request: ${data.service}`;
+  const body = [
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `Phone: ${data.phone || "Not provided"}`,
+    `Service: ${data.service}`,
+    "",
+    "Project details:",
+    data.message,
+  ].join("\n");
+  const recipient = form.dataset.recipient;
+  window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
 
 document.getElementById("order-form")?.addEventListener("submit", e => {

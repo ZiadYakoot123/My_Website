@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ziad Yakoot – AI Engineer & Embedded Systems Developer. Smart Glasses, Medical AI, Edge Computing." />
-  <title>Ziad Yakoot | AI Engineer & Embedded Systems Developer</title>
+  <meta name="description" content="Ziad Yakoot builds AI systems for pharmaceutical manufacturing, healthcare technology, and industrial automation." />
+  <title>Ziad Yakoot | AI for Manufacturing, Healthcare & Automation</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,8 +16,11 @@
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  
+  <!-- Google Fonts for Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet" />
 </head>
-<body>
+<body id="body-root">
 
 <!-- ===============================================================
      NAVBAR
@@ -26,12 +29,14 @@
   <a href="#hero" class="nav-logo">ZY.</a>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#tech">Tech Stack</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-en="About" data-ar="عني">About</a></li>
+    <li><a href="#projects" data-en="Projects" data-ar="المشاريع">Projects</a></li>
+    <li><a href="#services" data-en="Services" data-ar="الخدمات">Services</a></li>
+    <li><a href="#tech" data-en="Tech Stack" data-ar="المهارات">Tech Stack</a></li>
+    <li><a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a></li>
   </ul>
+
+  <button class="language-toggle" id="language-toggle" aria-label="Toggle language">العربية</button>
 
   <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -53,23 +58,23 @@
       onerror="this.style.display='none'"
     />
 
-    <h1 class="hero-title">Hi, I'm Ziad Yakoot 👋</h1>
-    <p class="hero-subtitle">AI Engineer &amp; Embedded Systems Developer</p>
+    <h1 class="hero-title"><span data-en="Engineering AI for the Real World" data-ar="هندسة الذكاء الاصطناعي للعالم الحقيقي">Engineering AI for the Real World</span></h1>
+    <p class="hero-subtitle" data-en="AI Engineer building intelligent systems for manufacturing, healthcare, and industrial automation." data-ar="مهندس ذكاء اصطناعي أبني أنظمة ذكية للتصنيع والرعاية الصحية والأتمتة الصناعية.">AI Engineer building intelligent systems for manufacturing, healthcare, and industrial automation.</p>
     <span id="typed-text"></span>
 
     <div class="hero-badges">
-      <span class="badge badge-blue">🔬 Medical AI</span>
-      <span class="badge badge-purple">👓 Smart Glasses</span>
-      <span class="badge badge-red">⚙️ Edge Computing</span>
+      <span class="badge badge-blue">💊 Pharma AI</span>
+      <span class="badge badge-purple">🏥 Healthcare</span>
+      <span class="badge badge-red">⚙️ Industrial Automation</span>
       <span class="badge badge-blue">🤖 AI Agents</span>
-      <span class="badge badge-purple">🍓 Raspberry Pi</span>
+      <span class="badge badge-purple">📈 Predictive Maintenance</span>
     </div>
 
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">
-        <i class="bx bx-send"></i> Hire Me
+      <a href="#contact" class="btn btn-primary" data-en="Start a Conversation" data-ar="ابدأ محادثة">
+        <i class="bx bx-send"></i> Start a Conversation
       </a>
-      <a href="#projects" class="btn btn-outline">
+      <a href="#projects" class="btn btn-outline" data-en="View Projects" data-ar="عرض المشاريع">
         <i class="bx bx-code-alt"></i> View Projects
       </a>
     </div>
@@ -94,46 +99,46 @@
 <section id="about">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Who I Am</span>
-      <h2 class="section-title">About Me</h2>
-      <p class="section-desc">Passionate engineer building AI-driven products that solve real problems in healthcare and smart devices.</p>
+      <span class="section-tag" data-en="Who I Am" data-ar="من أنا">Who I Am</span>
+      <h2 class="section-title" data-en="About Me" data-ar="عني">About Me</h2>
+      <p class="section-desc" data-en="I turn complex operational and clinical challenges into practical AI systems that teams can trust and use." data-ar="أحوّل التحديات التشغيلية والسريرية المعقدة إلى أنظمة ذكاء اصطناعي عملية يمكن للفرق الوثوق بها واستخدامها.">I turn complex operational and clinical challenges into practical AI systems that teams can trust and use.</p>
     </div>
 
     <div class="about-grid">
       <div class="about-text fade-in">
-        <h3>Building the Future, One AI at a Time</h3>
+        <h3 data-en="From Process Data to Better Decisions" data-ar="من بيانات العمليات إلى قرارات أفضل">From Process Data to Better Decisions</h3>
         <p>
-          I'm an AI &amp; Embedded Systems engineer specialising in bringing intelligent solutions to life
-          — from custom deep-learning models running on Raspberry Pi to full-stack AI-powered web
-          applications.
+          I design and deploy intelligent systems where reliability, traceability, and measurable impact matter.
+          My work spans pharmaceutical process optimization, GMP knowledge systems, medical-device research,
+          predictive maintenance, and Python-based automation.
         </p>
         <div class="about-items">
           <div class="about-item">
             <span class="icon">🔬</span>
             <div>
-              <strong>AI Medical Devices</strong>
-              <span>Developing AI-powered endoscopes and vein detection systems for real-time clinical support.</span>
+              <strong data-en="Pharmaceutical Intelligence" data-ar="الذكاء الاصطناعي الدوائي">Pharmaceutical Intelligence</strong>
+              <span data-en="Digital twins and machine learning models that connect process settings to tablet quality attributes." data-ar="توأم رقمي ونماذج تعلم آلي تربط إعدادات العملية بخصائص جودة الأقراص.">Digital twins and machine learning models that connect process settings to tablet quality attributes.</span>
             </div>
           </div>
           <div class="about-item">
             <span class="icon">👓</span>
             <div>
-              <strong>Smart Glasses</strong>
-              <span>Assistive wearable for visually impaired users — object detection, OCR, voice feedback.</span>
+              <strong data-en="Healthcare AI" data-ar="الذكاء الاصطناعي للرعاية الصحية">Healthcare AI</strong>
+              <span data-en="Computer vision, NLP, and voice interfaces designed to support diagnosis and clinical learning." data-ar="رؤية حاسوبية ومعالجة لغة وواجهات صوتية لدعم التشخيص والتعلم السريري.">Computer vision, NLP, and voice interfaces designed to support diagnosis and clinical learning.</span>
             </div>
           </div>
           <div class="about-item">
             <span class="icon">🤖</span>
             <div>
-              <strong>AI Agents &amp; Automation</strong>
-              <span>End-to-end intelligent systems for business automation, chatbots, and data analysis.</span>
+              <strong data-en="Quality &amp; Compliance Workflows" data-ar="الجودة والامتثال">Quality &amp; Compliance Workflows</strong>
+              <span data-en="GMP-grounded RAG and AI agents that make investigations and controlled knowledge easier to access." data-ar="استرجاع معزز وتطبيقات ذكية تستند إلى GMP لتسهيل التحقيقات والوصول إلى المعرفة المنضبطة.">GMP-grounded RAG and AI agents that make investigations and controlled knowledge easier to access.</span>
             </div>
           </div>
           <div class="about-item">
             <span class="icon">🌐</span>
             <div>
-              <strong>Full-Stack Development</strong>
-              <span>React + Python web apps with REST APIs, authentication, and cloud deployment.</span>
+              <strong data-en="Industrial Automation" data-ar="الأتمتة الصناعية">Industrial Automation</strong>
+              <span data-en="Predictive maintenance and workflow automation that turn sensor data into earlier, better action." data-ar="صيانة تنبؤية وأتمتة لسير العمل تحول بيانات المستشعرات إلى قرارات أسرع وأفضل.">Predictive maintenance and workflow automation that turn sensor data into earlier, better action.</span>
             </div>
           </div>
         </div>
@@ -142,19 +147,19 @@
       <div class="stats-grid fade-in">
         <div class="stat-card">
           <div class="stat-num" data-count="3" data-suffix="+">3+</div>
-          <div class="stat-label">Years Experience</div>
+          <div class="stat-label" data-en="Years Experience" data-ar="سنوات من الخبرة">Years Experience</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" data-count="10" data-suffix="+">10+</div>
-          <div class="stat-label">Projects Completed</div>
+          <div class="stat-label" data-en="Projects Completed" data-ar="مشاريع مكتملة">Projects Completed</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" data-count="5" data-suffix="+">5+</div>
-          <div class="stat-label">AI Models Deployed</div>
+          <div class="stat-label" data-en="AI Models Deployed" data-ar="نماذج ذكاء اصطناعي مطلقة">AI Models Deployed</div>
         </div>
         <div class="stat-card">
           <div class="stat-num" data-count="100" data-suffix="%">100%</div>
-          <div class="stat-label">Dedication</div>
+          <div class="stat-label" data-en="Dedication" data-ar="التفاني">Dedication</div>
         </div>
       </div>
     </div>
@@ -167,138 +172,57 @@
 <section id="projects">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">My Work</span>
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-desc">Real-world AI and embedded systems solutions I've built from the ground up.</p>
+      <span class="section-tag" data-en="My Work" data-ar="أعمالي">My Work</span>
+      <h2 class="section-title" data-en="Featured Projects" data-ar="المشاريع المميزة">Featured Projects</h2>
+      <p class="section-desc" data-en="Selected systems built to improve quality, accelerate decisions, and reduce operational risk." data-ar="أنظمة مختارة صممت لتحسين الجودة وتسريع القرارات وتقليل المخاطر التشغيلية.">Selected systems built to improve quality, accelerate decisions, and reduce operational risk.</p>
     </div>
 
     <div class="projects-grid">
-
-      <!-- Project 1: Smart Glasses -->
+      {% for project in projects %}
       <article class="project-card fade-in">
         <div class="project-media">
-          <!-- Replace the src below with your project image/video path -->
-          <img
-            src="{{ url_for('static', filename='images/projects/smart-glasses.jpg') }}"
-            alt="Smart Glasses project"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>👓</span><span>Add your image to static/images/projects/smart-glasses.jpg</span></div>'"
-          />
-          <span class="project-badge">AI Vision</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">Smart Glasses — AI Vision Assistant</h3>
-          <p class="project-desc">
-            An assistive wearable device that brings independence to visually impaired users through
-            real-time object detection, OCR, voice feedback, and multilingual translation.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">YOLO</span>
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">OpenCV</span>
-            <span class="tag">TTS</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 2: AI Medical Endoscope -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <img
-            src="{{ url_for('static', filename='images/projects/medical-endoscope.jpg') }}"
-            alt="AI Medical Endoscope project"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🔬</span><span>Add your image to static/images/projects/medical-endoscope.jpg</span></div>'"
-          />
-          <span class="project-badge">Medical AI</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">AI Medical Endoscope</h3>
-          <p class="project-desc">
-            AI-enhanced endoscopy system that assists doctors in real-time lesion detection,
-            microscopic inspection mode switching, and clinical diagnosis support.
-          </p>
-          <div class="project-tags">
-            <span class="tag">TensorFlow</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Edge AI</span>
-            <span class="tag">Medical Devices</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 3: Vein Detection -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <img
-            src="{{ url_for('static', filename='images/projects/vein-detection.jpg') }}"
-            alt="Vein Detection System"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🩺</span><span>Add your image to static/images/projects/vein-detection.jpg</span></div>'"
-          />
-          <span class="project-badge">Healthcare</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">AI Vein Detection System</h3>
-          <p class="project-desc">
-            Near-infrared imaging combined with computer vision to accurately map veins for
-            medical procedures, reducing patient discomfort.
-          </p>
-          <div class="project-tags">
-            <span class="tag">OpenCV</span>
-            <span class="tag">NIR Imaging</span>
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">PyTorch</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 4: AI Agents -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <img
-            src="{{ url_for('static', filename='images/projects/ai-agents.jpg') }}"
-            alt="AI Agents and Automation"
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🤖</span><span>Add your image to static/images/projects/ai-agents.jpg</span></div>'"
-          />
-          <span class="project-badge">Automation</span>
-        </div>
-        <div class="project-body">
-          <h3 class="project-title">AI Agents &amp; Automation Suite</h3>
-          <p class="project-desc">
-            End-to-end intelligent systems including customer service bots, inventory management
-            platforms, BMS/HVAC data analysis, and local LLM deployments.
-          </p>
-          <div class="project-tags">
-            <span class="tag">LLM</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">Python</span>
-            <span class="tag">React</span>
-            <span class="tag">REST API</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Project 5: Demo video card -->
-      <article class="project-card fade-in">
-        <div class="project-media">
-          <!-- Replace with your actual video -->
+          {% if project.media_type == 'video' and project.media_path %}
           <video
-            src="{{ url_for('static', filename='videos/projects/demo.mp4') }}"
+            src="{{ url_for('static', filename=project.media_path) }}"
             autoplay muted loop playsinline
-            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>🎬</span><span>Add your video to static/videos/projects/demo.mp4</span></div>'"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>{{ project.icon or '🚀' }}</span><span>Media file not found</span></div>'"
           ></video>
-          <span class="project-badge">Video Demo</span>
+          {% elif project.media_type == 'image' and project.media_path %}
+          <img
+            src="{{ url_for('static', filename=project.media_path) }}"
+            alt="{{ project.title }}"
+            onerror="this.parentElement.innerHTML='<div class=\'project-placeholder\'><span class=\'ph-icon\'>{{ project.icon or '🚀' }}</span><span>Media file not found</span></div>'"
+          />
+          {% else %}
+          <div class="project-placeholder">
+            <span class="ph-icon">{{ project.icon or "🚀" }}</span>
+            <span>No preview media</span>
+          </div>
+          {% endif %}
+          {% if project.badge %}
+          <span class="project-badge">{{ project.badge }}</span>
+          {% endif %}
         </div>
         <div class="project-body">
-          <h3 class="project-title">Project Video Demo</h3>
-          <p class="project-desc">
-            Place a short demo video in <code>static/videos/projects/demo.mp4</code> to showcase
-            your project live on this card.
-          </p>
-          <div class="project-tags">
-            <span class="tag">Demo</span>
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+          {% if project.challenge and project.solution and project.impact %}
+          <div class="project-story">
+            <p><strong>Challenge</strong>{{ project.challenge }}</p>
+            <p><strong>AI Solution</strong>{{ project.solution }}</p>
+            <p><strong>Impact</strong>{{ project.impact }}</p>
           </div>
+          {% endif %}
+          {% if project.tags %}
+          <div class="project-tags">
+            {% for tag in project.tags.split(',') %}
+            <span class="tag">{{ tag.strip() }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
         </div>
       </article>
+      {% endfor %}
 
       <!-- Add-More Placeholder -->
       <article class="project-card project-card--placeholder fade-in">
@@ -309,10 +233,10 @@
           </div>
         </div>
         <div class="project-body">
-          <h3 class="project-title">Your Next Project</h3>
+          <h3 class="project-title">A New Problem Worth Solving</h3>
           <p class="project-desc">
-            Drop an image in <code>static/images/projects/</code> and add a new card here to
-            showcase your work.
+            From a manufacturing bottleneck to a clinical workflow, the next useful AI system
+            starts with a clearly defined operational challenge.
           </p>
         </div>
       </article>
@@ -327,58 +251,58 @@
 <section id="services">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">What I Offer</span>
-      <h2 class="section-title">Services</h2>
-      <p class="section-desc">From AI model development to full hardware integration — I deliver end-to-end solutions.</p>
+      <span class="section-tag" data-en="What I Offer" data-ar="ما أقدمه">What I Offer</span>
+      <h2 class="section-title" data-en="Services" data-ar="الخدمات">Services</h2>
+      <p class="section-desc" data-en="I connect technical depth with the workflows, controls, and outcomes that matter to your organisation." data-ar="أربط الخبرة التقنية العميقة بسير العمل والضوابط والنتائج المهمة لمؤسستك.">I connect technical depth with the workflows, controls, and outcomes that matter to your organisation.</p>
     </div>
 
     <div class="services-grid">
 
       <div class="service-card fade-in">
         <div class="service-icon">🤖</div>
-        <h3 class="service-title">AI &amp; Machine Learning</h3>
-        <p class="service-desc">Custom AI models tailored to your specific domain and deployment environment.</p>
+        <h3 class="service-title" data-en="AI & Machine Learning" data-ar="الذكاء الاصطناعي والتعلم الآلي">AI & Machine Learning</h3>
+        <p class="service-desc">Domain-specific AI built around your data, users, and deployment constraints.</p>
         <ul class="service-features">
-          <li>Custom CV &amp; NLP models</li>
-          <li>Chatbots &amp; AI agents</li>
-          <li>Local LLM deployment</li>
-          <li>Data analysis pipelines</li>
+          <li>Computer vision and NLP</li>
+          <li>LLMs, RAG, and AI agents</li>
+          <li>Predictive modeling</li>
+          <li>Data and evaluation pipelines</li>
         </ul>
       </div>
 
       <div class="service-card fade-in">
         <div class="service-icon">⚙️</div>
-        <h3 class="service-title">Embedded Systems</h3>
-        <p class="service-desc">Real-time AI on the edge — from Raspberry Pi to custom IoT solutions.</p>
+        <h3 class="service-title" data-en="Embedded Systems" data-ar="الأنظمة المدمجة">Embedded Systems</h3>
+        <p class="service-desc">Reliable connections between sensors, devices, models, and operational systems.</p>
         <ul class="service-features">
-          <li>Raspberry Pi / IoT solutions</li>
-          <li>Sensor integration</li>
-          <li>Real-time edge AI</li>
-          <li>Arduino prototyping</li>
+          <li>System architecture</li>
+          <li>Sensor and BMS integration</li>
+          <li>Edge and embedded AI</li>
+          <li>Python automation</li>
         </ul>
       </div>
 
       <div class="service-card fade-in">
         <div class="service-icon">🏥</div>
-        <h3 class="service-title">Healthcare Technology</h3>
-        <p class="service-desc">AI-assisted medical devices and smart wearables that transform patient care.</p>
+        <h3 class="service-title" data-en="Healthcare Technology" data-ar="تقنيات الرعاية الصحية">Healthcare Technology</h3>
+        <p class="service-desc">Research-led medical-device software designed to support clinicians and learners.</p>
         <ul class="service-features">
-          <li>Medical device prototyping</li>
-          <li>AI-assisted diagnostics</li>
-          <li>Smart wearable solutions</li>
-          <li>Clinical imaging AI</li>
+          <li>AI-assisted diagnosis</li>
+          <li>Interactive clinical descriptions</li>
+          <li>Voice-enabled interfaces</li>
+          <li>Computer vision research</li>
         </ul>
       </div>
 
       <div class="service-card fade-in">
         <div class="service-icon">🌐</div>
-        <h3 class="service-title">Software Development</h3>
-        <p class="service-desc">Production-ready full-stack applications with clean APIs and modern UX.</p>
+        <h3 class="service-title" data-en="Software Development" data-ar="تطوير البرامج">Software Development</h3>
+        <p class="service-desc">Production-minded tools that make AI useful inside everyday business processes.</p>
         <ul class="service-features">
-          <li>Full-stack apps (React + Python)</li>
+          <li>Workflow automation</li>
           <li>REST API development</li>
-          <li>Automation systems</li>
-          <li>Database design</li>
+          <li>Knowledge-base systems</li>
+          <li>Deployment and integration</li>
         </ul>
       </div>
 
@@ -392,55 +316,46 @@
 <section id="tech">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Skills</span>
-      <h2 class="section-title">Tech Stack</h2>
-      <p class="section-desc">The tools and technologies I use to build AI-powered solutions.</p>
+      <span class="section-tag" data-en="Core Competencies" data-ar="الكفاءات الأساسية">Core Competencies</span>
+      <h2 class="section-title" data-en="Technical Expertise" data-ar="الخبرة التقنية">Technical Expertise</h2>
+      <p class="section-desc" data-en="The methods, technologies, and engineering disciplines behind my projects." data-ar="الأساليب والتقنيات والتخصصات الهندسية وراء مشاريعي.">The methods, technologies, and engineering disciplines behind my projects.</p>
     </div>
 
     <div class="fade-in">
 
       <div class="tech-category">
-        <h3>Languages</h3>
+        <h3 data-en="Engineering &amp; Automation" data-ar="الهندسة والأتمتة">Engineering &amp; Automation</h3>
         <div class="tech-pills">
           <span class="tech-pill"><span class="t-icon">🐍</span> Python</span>
-          <span class="tech-pill"><span class="t-icon">⚡</span> C++</span>
-          <span class="tech-pill"><span class="t-icon">🟨</span> JavaScript</span>
-          <span class="tech-pill"><span class="t-icon">🔷</span> C</span>
+          <span class="tech-pill"><span class="t-icon">🏗️</span> System Architecture</span>
+          <span class="tech-pill"><span class="t-icon">⚙️</span> Industrial Automation</span>
+          <span class="tech-pill"><span class="t-icon">📡</span> Sensor &amp; BMS Integration</span>
+          <span class="tech-pill"><span class="t-icon">🚀</span> AI Deployment</span>
         </div>
       </div>
 
       <div class="tech-category">
-        <h3>AI &amp; Data</h3>
+        <h3 data-en="AI &amp; Data Intelligence" data-ar="الذكاء الاصطناعي والبيانات">AI &amp; Data Intelligence</h3>
         <div class="tech-pills">
-          <span class="tech-pill"><span class="t-icon">🔶</span> TensorFlow</span>
-          <span class="tech-pill"><span class="t-icon">🔥</span> PyTorch</span>
+          <span class="tech-pill"><span class="t-icon">🧬</span> Digital Twins</span>
+          <span class="tech-pill"><span class="t-icon">📊</span> Predictive Maintenance</span>
+          <span class="tech-pill"><span class="t-icon">📈</span> Random Forest / XGBoost</span>
+          <span class="tech-pill"><span class="t-icon">🧠</span> NLP / LLMs</span>
+          <span class="tech-pill"><span class="t-icon">🔎</span> RAG Systems</span>
           <span class="tech-pill"><span class="t-icon">📷</span> OpenCV</span>
-          <span class="tech-pill"><span class="t-icon">🎯</span> YOLO</span>
-          <span class="tech-pill"><span class="t-icon">🦜</span> LangChain</span>
           <span class="tech-pill"><span class="t-icon">🐼</span> Pandas / NumPy</span>
-          <span class="tech-pill"><span class="t-icon">🤗</span> Hugging Face</span>
         </div>
       </div>
 
       <div class="tech-category">
-        <h3>Embedded &amp; Hardware</h3>
+        <h3 data-en="Healthcare &amp; Quality Systems" data-ar="الرعاية الصحية وأنظمة الجودة">Healthcare &amp; Quality Systems</h3>
         <div class="tech-pills">
-          <span class="tech-pill"><span class="t-icon">🍓</span> Raspberry Pi</span>
-          <span class="tech-pill"><span class="t-icon">🔌</span> Arduino</span>
-          <span class="tech-pill"><span class="t-icon">📡</span> MQTT / IoT</span>
-          <span class="tech-pill"><span class="t-icon">🔬</span> NIR Imaging</span>
-        </div>
-      </div>
-
-      <div class="tech-category">
-        <h3>Web &amp; Backend</h3>
-        <div class="tech-pills">
-          <span class="tech-pill"><span class="t-icon">⚗️</span> Flask</span>
-          <span class="tech-pill"><span class="t-icon">🚀</span> FastAPI</span>
-          <span class="tech-pill"><span class="t-icon">⚛️</span> React</span>
-          <span class="tech-pill"><span class="t-icon">🗄️</span> SQLite / PostgreSQL</span>
-          <span class="tech-pill"><span class="t-icon">🐙</span> Git / GitHub</span>
-          <span class="tech-pill"><span class="t-icon">🐳</span> Docker</span>
+          <span class="tech-pill"><span class="t-icon">🧪</span> GMP Compliance</span>
+          <span class="tech-pill"><span class="t-icon">📋</span> SOP Knowledge Systems</span>
+          <span class="tech-pill"><span class="t-icon">🩺</span> Medical AI</span>
+          <span class="tech-pill"><span class="t-icon">🎙️</span> Voice Interfaces</span>
+          <span class="tech-pill"><span class="t-icon">🔬</span> Computer Vision</span>
+          <span class="tech-pill"><span class="t-icon">✅</span> Audit-Ready Workflows</span>
         </div>
       </div>
 
@@ -454,8 +369,8 @@
 <section id="stats">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Open Source</span>
-      <h2 class="section-title">GitHub Stats</h2>
+      <span class="section-tag" data-en="Open Source" data-ar="مفتوح المصدر">Open Source</span>
+      <h2 class="section-title" data-en="GitHub Stats" data-ar="إحصائيات GitHub">GitHub Stats</h2>
     </div>
     <div class="stats-imgs fade-in">
       <img
@@ -478,47 +393,47 @@
 <section id="contact">
   <div class="container">
     <div class="section-header fade-in">
-      <span class="section-tag">Get In Touch</span>
-      <h2 class="section-title">Contact Me</h2>
-      <p class="section-desc">Have a project in mind? Let's build something amazing together.</p>
+      <span class="section-tag" data-en="Get In Touch" data-ar="التواصل معي">Get In Touch</span>
+      <h2 class="section-title" data-en="Contact Me" data-ar="اتصل بي">Contact Me</h2>
+      <p class="section-desc" data-en="Have a manufacturing, healthcare, or automation challenge? Let&#39;s discuss the right AI path." data-ar="هل لديك تحد في التصنيع أو الرعاية الصحية أو الأتمتة؟ لنتحدث عن المسار المناسب للذكاء الاصطناعي.">Have a manufacturing, healthcare, or automation challenge? Let's discuss the right AI path.</p>
     </div>
 
     <div class="contact-grid">
 
       <!-- Left: info -->
       <div class="contact-info fade-in">
-        <h3>Let's Work Together</h3>
-        <p>
-          Whether you need a custom AI model, an embedded system prototype, a healthcare device,
-          or a full-stack application — I'm here to help turn your ideas into reality.
+        <h3 data-en="Let&#39;s Build What Matters" data-ar="لنبنِ ما يصنع الفرق">Let's Build What Matters</h3>
+        <p data-en="Recruiting for an AI, automation, or medical-device role? Exploring a collaboration? I bring technical depth, structured problem-solving, and a focus on outcomes your team can measure." data-ar="هل تبحث عن كفاءة في الذكاء الاصطناعي أو الأتمتة أو الأجهزة الطبية؟ أقدم خبرة تقنية وحلاً منظماً للمشكلات وتركيزاً على نتائج يمكن لفريقك قياسها.">
+          Recruiting for an AI, automation, or medical-device role? Exploring a collaboration? I bring technical depth,
+          structured problem-solving, and a focus on outcomes your team can measure.
         </p>
 
         <div class="contact-links">
           <a href="mailto:ziadyakout6@gmail.com" class="contact-link">
             <span class="cl-icon">✉️</span>
             <div class="cl-text">
-              <small>Email</small>
+              <small data-en="Email" data-ar="البريد الإلكتروني">Email</small>
               <strong>ziadyakout6@gmail.com</strong>
             </div>
           </a>
           <a href="mailto:Z.Yakoot72167@student.aast.edu" class="contact-link">
             <span class="cl-icon">🎓</span>
             <div class="cl-text">
-              <small>Academic Email</small>
+              <small data-en="Academic Email" data-ar="البريد المؤسسي">Academic Email</small>
               <strong>Z.Yakoot72167@student.aast.edu</strong>
             </div>
           </a>
           <a href="https://www.linkedin.com/in/ziadyakoot" target="_blank" rel="noopener" class="contact-link">
             <span class="cl-icon">💼</span>
             <div class="cl-text">
-              <small>LinkedIn</small>
+              <small data-en="LinkedIn" data-ar="لينكداين">LinkedIn</small>
               <strong>linkedin.com/in/ziadyakoot</strong>
             </div>
           </a>
           <a href="https://github.com/ZiadYakoot123" target="_blank" rel="noopener" class="contact-link">
             <span class="cl-icon">🐙</span>
             <div class="cl-text">
-              <small>GitHub</small>
+              <small data-en="GitHub" data-ar="GitHub">GitHub</small>
               <strong>github.com/ZiadYakoot123</strong>
             </div>
           </a>
@@ -534,7 +449,7 @@
 
         <!-- Service Request Form -->
         <div class="form-panel active" id="panel-service">
-          <form id="service-form" novalidate>
+          <form id="service-form" data-recipient="ziadyakout6@gmail.com" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="s-name">Full Name *</label>
@@ -652,6 +567,7 @@
 <button id="scroll-top" aria-label="Scroll to top">↑</button>
 
 <!-- Main JS -->
+<script src="{{ url_for('static', filename='js/language.js') }}"></script>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>

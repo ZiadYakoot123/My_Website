@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --line: #334155;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --danger: #fb7185;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top left, #1e293b, var(--bg));
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    }
+    h1 { margin: 0 0 8px; font-size: 1.4rem; }
+    p { margin: 0 0 18px; color: var(--muted); font-size: 0.95rem; }
+    .error {
+      margin-bottom: 14px;
+      border: 1px solid rgba(251, 113, 133, 0.5);
+      background: rgba(251, 113, 133, 0.12);
+      color: #fecdd3;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+    label {
+      display: block;
+      margin: 10px 0 6px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #0b1220;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15);
+    }
+    button {
+      width: 100%;
+      margin-top: 16px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(120deg, #06b6d4, #0891b2);
+      color: #06202a;
+      font-weight: 700;
+      padding: 11px 12px;
+      cursor: pointer;
+    }
+    a { color: var(--accent); }
+    .back { margin-top: 14px; text-align: center; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Admin Login</h1>
+    <p>Sign in to manage projects and review requests.</p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" action="{{ url_for('admin_login') }}">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" required />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required />
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div class="back">
+      <a href="{{ url_for('index') }}">Back to website</a>
+    </div>
+  </main>
+</body>
+</html>

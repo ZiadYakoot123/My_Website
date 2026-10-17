@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #0f172a;
+      --line: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --danger: #fb7185;
+      --ok: #34d399;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: linear-gradient(180deg, #0b1220, #020617);
+      color: var(--text);
+      padding: 24px;
+    }
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .topbar h1 { margin: 0; font-size: 1.4rem; }
+    .actions { display: flex; gap: 10px; }
+    .btn {
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      background: #0a1327;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn.logout {
+      border-color: rgba(251, 113, 133, 0.45);
+      color: #fecdd3;
+    }
+    .panel {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    .panel h2 { margin: 0 0 14px; font-size: 1.1rem; }
+    .muted { color: var(--muted); }
+
+    form.add-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    form.add-form .full { grid-column: 1 / -1; }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #0a1327;
+      color: var(--text);
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 0.92rem;
+      outline: none;
+      font-family: inherit;
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.12);
+    }
+    button[type="submit"] {
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(120deg, #06b6d4, #0891b2);
+      color: #05222b;
+      font-weight: 800;
+      padding: 11px;
+      cursor: pointer;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 10px;
+    }
+    .project-item {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      background: #0a1327;
+    }
+    .project-item h3 { margin: 0 0 4px; font-size: 1rem; }
+    .project-item p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .mini {
+      margin-top: 5px;
+      color: #93c5fd;
+      font-size: 0.8rem;
+    }
+    .danger-btn {
+      border: 1px solid rgba(251, 113, 133, 0.55);
+      background: rgba(251, 113, 133, 0.12);
+      color: #fecdd3;
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      min-width: 720px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px;
+      vertical-align: top;
+    }
+    th {
+      color: #bae6fd;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .table-wrap { overflow-x: auto; }
+    @media (max-width: 900px) {
+      body { padding: 12px; }
+      form.add-form { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <h1>Admin Dashboard</h1>
+      <div class="actions">
+        <a class="btn" href="{{ url_for('index') }}" target="_blank" rel="noopener">Open Website</a>
+        <a class="btn logout" href="{{ url_for('admin_logout') }}">Logout</a>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>Add New Project</h2>
+      <form class="add-form" method="post" action="{{ url_for('admin_add_project') }}">
+        <div>
+          <label for="title">Title *</label>
+          <input id="title" name="title" required />
+        </div>
+        <div>
+          <label for="badge">Badge</label>
+          <input id="badge" name="badge" placeholder="AI Vision" />
+        </div>
+        <div class="full">
+          <label for="description">Description *</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <div>
+          <label for="tags">Tags (comma separated)</label>
+          <input id="tags" name="tags" placeholder="Python, Flask, Vision" />
+        </div>
+        <div>
+          <label for="icon">Icon</label>
+          <input id="icon" name="icon" value="P" placeholder="P" />
+        </div>
+        <div>
+          <label for="media_type">Media Type</label>
+          <select id="media_type" name="media_type">
+            <option value="image">Image</option>
+            <option value="video">Video</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+        <div>
+          <label for="media_path">Media Path under /static</label>
+          <input id="media_path" name="media_path" placeholder="images/projects/new-project.jpg" />
+        </div>
+        <div class="full">
+          <button type="submit">Add Project</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Projects ({{ projects|length }})</h2>
+      <div class="project-list">
+        {% for project in projects %}
+        <article class="project-item">
+          <div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="mini">
+              ID: {{ project.id }} | Badge: {{ project.badge or '-' }} | Tags: {{ project.tags or '-' }} | Media: {{ project.media_type }} {{ project.media_path or '' }}
+            </div>
+          </div>
+          <form method="post" action="{{ url_for('admin_delete_project', project_id=project.id) }}" onsubmit="return confirm('Delete this project?')">
+            <button type="submit" class="danger-btn">Delete</button>
+          </form>
+        </article>
+        {% else %}
+        <p class="muted">No projects yet.</p>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Service Requests ({{ service_requests|length }})</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Service</th>
+              <th>Message</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in service_requests %}
+            <tr>
+              <td>{{ r.id }}</td>
+              <td>{{ r.name }}</td>
+              <td>{{ r.email }}</td>
+              <td>{{ r.phone or '-' }}</td>
+              <td>{{ r.service }}</td>
+              <td>{{ r.message }}</td>
+              <td>{{ r.created_at }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="7" class="muted">No service requests yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Product Orders ({{ product_orders|length }})</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Message</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for o in product_orders %}
+            <tr>
+              <td>{{ o.id }}</td>
+              <td>{{ o.name }}</td>
+              <td>{{ o.email }}</td>
+              <td>{{ o.phone or '-' }}</td>
+              <td>{{ o.product }}</td>
+              <td>{{ o.quantity }}</td>
+              <td>{{ o.message or '-' }}</td>
+              <td>{{ o.created_at }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="8" class="muted">No product orders yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
