@@ -34,40 +34,76 @@ def valid_email(email: str) -> bool:
 
 DEFAULT_PROJECTS = [
     {
-        "title": "Smart Glasses - AI Vision Assistant",
-        "description": (
-            "An assistive wearable device for visually impaired users with real-time "
-            "object detection, OCR, and voice feedback."
-        ),
-        "badge": "AI Vision",
-        "tags": "Python, YOLO, Raspberry Pi, OpenCV, TTS",
-        "media_type": "image",
-        "media_path": "images/projects/smart-glasses.jpg",
-        "icon": "👓",
+        "title": "AI Digital Twin for Tablet Compression",
+        "description": "An AI framework for reducing physical trial-and-error in pharmaceutical manufacturing.",
+        "challenge": "Pharmaceutical teams need to tune compression settings while protecting quality and reducing material waste.",
+        "solution": "Forward models using Random Forest and XGBoost predict tablet weight, thickness, and friability. Inverse modeling with Histogram-based Gradient Boosting proposes fill depth and compression force settings.",
+        "impact": "A data-driven route to faster process development, more consistent tablets, and fewer experimental cycles.",
+        "badge": "Pharma AI",
+        "tags": "Digital Twin, Random Forest, XGBoost, Process Optimization",
+        "media_type": "none",
+        "media_path": "",
+        "icon": "💊",
     },
     {
-        "title": "AI Medical Endoscope",
-        "description": (
-            "AI-enhanced endoscopy system that assists doctors in real-time lesion "
-            "detection and clinical diagnosis support."
-        ),
-        "badge": "Medical AI",
-        "tags": "TensorFlow, Computer Vision, Edge AI, Medical Devices",
-        "media_type": "image",
-        "media_path": "images/projects/medical-endoscope.jpg",
+        "title": "SOPs & Guidelines Chatbot",
+        "description": "A GMP-grounded assistant for fast, traceable answers to SOP and guideline questions.",
+        "challenge": "Teams lose time searching across controlled documents and risk relying on outdated or incomplete guidance.",
+        "solution": "Retrieval-Augmented Generation fetches current, approved SOPs and returns concise answers with source citations.",
+        "impact": "Faster knowledge access, fewer interpretation errors, and audit-ready responses grounded in approved content.",
+        "badge": "GMP Automation",
+        "tags": "RAG, LLMs, GMP, Document Retrieval",
+        "media_type": "none",
+        "media_path": "",
+        "icon": "📚",
+    },
+    {
+        "title": "Smart Deviation & Risk Assessment Agent",
+        "description": "An automated QA workflow that turns BMS alarms into structured review-ready documentation.",
+        "challenge": "Alarm investigations require teams to correlate sensor history, procedures, and context before a deviation can be assessed.",
+        "solution": "The agent captures BMS sensor data, retrieves knowledge-base documents, and drafts the deviation report, likely causes, corrective actions, and risk assessment for QA review.",
+        "impact": "Shorter investigation cycles, more consistent documentation, and better use of QA expertise where human judgment matters most.",
+        "badge": "Quality Systems",
+        "tags": "AI Agents, BMS, Root Cause Analysis, QA",
+        "media_type": "none",
+        "media_path": "",
+        "icon": "⚠️",
+    },
+    {
+        "title": "AI Diagnosis Software for Gastrointestinal Endoscopes",
+        "description": "An intelligent endoscopy platform that supports clinicians during diagnosis and training.",
+        "challenge": "Junior staff and endoscopists need timely visual and procedural support while building diagnostic confidence.",
+        "solution": "NLP, LLM transformers, and computer vision detect diseases, generate interactive diagnostic descriptions, and respond to voice commands for zooming or image capture.",
+        "impact": "A more accessible learning curve and richer real-time decision support. Research accepted at the International Congress of AI in Health 2024.",
+        "badge": "Healthcare AI",
+        "tags": "Computer Vision, NLP, LLM Transformers, Medical Devices",
+        "media_type": "none",
+        "media_path": "",
         "icon": "🔬",
     },
     {
-        "title": "AI Vein Detection System",
-        "description": (
-            "Near-infrared imaging with computer vision to map veins for medical "
-            "procedures and reduce patient discomfort."
-        ),
-        "badge": "Healthcare",
-        "tags": "OpenCV, NIR Imaging, Raspberry Pi, PyTorch",
-        "media_type": "image",
-        "media_path": "images/projects/vein-detection.jpg",
-        "icon": "🩺",
+        "title": "Bearing RUL Fault Detection",
+        "description": "Predictive maintenance models for detecting bearing faults and estimating remaining useful life.",
+        "challenge": "Unexpected bearing failures create downtime, maintenance cost, and avoidable production disruption.",
+        "solution": "Machine learning models analyze equipment signals to identify fault patterns and estimate Remaining Useful Life before failure.",
+        "impact": "Earlier intervention, better maintenance planning, and improved equipment availability across industrial operations.",
+        "badge": "Predictive Maintenance",
+        "tags": "RUL Estimation, Fault Detection, Condition Monitoring, ML",
+        "media_type": "none",
+        "media_path": "",
+        "icon": "⚙️",
+    },
+    {
+        "title": "General Automation & AI Systems",
+        "description": "End-to-end automation for complex industrial and business workflows.",
+        "challenge": "Disconnected tools and repetitive manual processes slow decisions and make operational knowledge difficult to scale.",
+        "solution": "I design system architectures, develop Python automations, connect data sources, and deploy AI solutions around real operational constraints.",
+        "impact": "Streamlined workflows, clearer information flow, and practical AI adoption that connects engineering effort to measurable business value.",
+        "badge": "Automation",
+        "tags": "Python, System Architecture, Workflow Automation, Deployment",
+        "media_type": "none",
+        "media_path": "",
+        "icon": "🤖",
     },
 ]
 
@@ -113,6 +149,9 @@ def init_db():
                 id          INTEGER PRIMARY KEY AUTOINCREMENT,
                 title       TEXT    NOT NULL,
                 description TEXT    NOT NULL,
+                challenge   TEXT    NOT NULL DEFAULT '',
+                solution    TEXT    NOT NULL DEFAULT '',
+                impact      TEXT    NOT NULL DEFAULT '',
                 badge       TEXT,
                 tags        TEXT,
                 media_type  TEXT    NOT NULL DEFAULT 'image',
@@ -123,18 +162,30 @@ def init_db():
             """
         )
 
-        count = conn.execute("SELECT COUNT(*) AS c FROM projects").fetchone()["c"]
-        if count == 0:
-            now = datetime.utcnow().isoformat()
-            for project in DEFAULT_PROJECTS:
+
+        columns = {row[1] for row in conn.execute("PRAGMA table_info(projects)").fetchall()}
+        for column in ("challenge", "solution", "impact"):
+            if column not in columns:
+                conn.execute(f"ALTER TABLE projects ADD COLUMN {column} TEXT NOT NULL DEFAULT ''")
+        existing_titles = {
+            row["title"] for row in conn.execute("SELECT title FROM projects").fetchall()
+        }
+        now = datetime.utcnow().isoformat()
+        for project in DEFAULT_PROJECTS:
+            if project["title"] not in existing_titles:
                 conn.execute(
                     """
-                    INSERT INTO projects (title, description, badge, tags, media_type, media_path, icon, created_at)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    INSERT INTO projects (
+                        title, description, challenge, solution, impact, badge,
+                        tags, media_type, media_path, icon, created_at
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     """,
                     (
                         project["title"],
                         project["description"],
+                        project["challenge"],
+                        project["solution"],
+                        project["impact"],
                         project["badge"],
                         project["tags"],
                         project["media_type"],

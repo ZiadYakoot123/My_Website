@@ -492,6 +492,17 @@ section { padding: 5rem 2rem; }
 .project-title { font-size: 1.15rem; font-weight: 800; margin-bottom: .5rem; letter-spacing: 0.5px; font-family: 'Courier New', monospace; }
 .project-desc  { color: var(--text-muted); font-size: .88rem; line-height: 1.7; flex: 1; }
 
+.project-story {
+  display: flex; flex-direction: column; gap: .7rem;
+  margin-top: 1.25rem; padding-top: 1rem;
+  border-top: 1px solid rgba(0,150,204,.18);
+}
+.project-story p { color: var(--text-muted); font-size: .8rem; line-height: 1.6; }
+.project-story strong {
+  display: block; color: var(--accent); font-size: .72rem;
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: .15rem;
+}
+
 .project-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
 .tag {
   background: rgba(0,150,204,.12); color: var(--accent);

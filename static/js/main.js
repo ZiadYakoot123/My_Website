@@ -2,11 +2,11 @@
    Typing effect
    ========================================================= */
 const TYPED_STRINGS = [
-  "AI Engineer | Embedded Systems Developer",
-  "Builder of AI-Powered Hardware Solutions",
-  "Smart Glasses | Medical AI | Edge Computing",
-  "Computer Vision & NLP Specialist",
-  "Raspberry Pi & IoT Enthusiast",
+  "Pharmaceutical Process Intelligence",
+  "GMP Knowledge Systems & AI Agents",
+  "Medical Device AI & Computer Vision",
+  "Predictive Maintenance for Industry",
+  "Python Automation from Data to Deployment",
 ];
 
 (function initTyping() {
