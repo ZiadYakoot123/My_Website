@@ -1,7 +1,9 @@
 import os
 import re
+import smtplib
 import sqlite3
 from datetime import datetime
+from email.message import EmailMessage
 
 from flask import (
     Flask,
@@ -26,6 +28,51 @@ ADMIN_PASSWORD_HASH = os.environ.get(
 )
 
 _EMAIL_RE = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
+
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL", "ziadyakout6@gmail.com")
+
+
+def send_service_request_email(name: str, email: str, phone: str, service: str, message: str) -> bool:
+    """Send a service request notification when SMTP is configured."""
+    smtp_host = os.environ.get("SMTP_HOST")
+    smtp_username = os.environ.get("SMTP_USERNAME")
+    smtp_password = os.environ.get("SMTP_PASSWORD")
+
+    if not all([smtp_host, smtp_username, smtp_password, CONTACT_EMAIL]):
+        return False
+
+    smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+    sender = os.environ.get("SMTP_FROM", smtp_username)
+    email_message = EmailMessage()
+    email_message["Subject"] = f"New service request: {service}"
+    email_message["From"] = sender
+    email_message["To"] = CONTACT_EMAIL
+    email_message["Reply-To"] = email
+    email_message.set_content(
+        "A new service request was submitted from your portfolio website.\n\n"
+        f"Name: {name}\n"
+        f"Email: {email}\n"
+        f"Phone: {phone or 'Not provided'}\n"
+        f"Service: {service}\n\n"
+        "Project details:\n"
+        f"{message}\n"
+    )
+
+    try:
+        if smtp_port == 465:
+            with smtplib.SMTP_SSL(smtp_host, smtp_port, timeout=15) as smtp:
+                smtp.login(smtp_username, smtp_password)
+                smtp.send_message(email_message)
+        else:
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=15) as smtp:
+                smtp.starttls()
+                smtp.login(smtp_username, smtp_password)
+                smtp.send_message(email_message)
+    except (OSError, smtplib.SMTPException, ValueError):
+        app.logger.exception("Could not send service request email")
+        return False
+
+    return True
 
 
 def valid_email(email: str) -> bool:
@@ -247,6 +294,15 @@ def contact():
             (name, email, phone, service, message, datetime.utcnow().isoformat()),
         )
 
+    email_sent = send_service_request_email(name, email, phone, service, message)
+    if not email_sent and os.environ.get("SMTP_HOST"):
+        return jsonify(
+            {
+                "success": False,
+                "error": "Your request was saved, but the email notification could not be sent. Please try again or contact me directly.",
+            }
+        ), 503
+
     return jsonify(
         {
             "success": True,
@@ -393,6 +449,11 @@ def admin_delete_project(project_id: int):
     return redirect(url_for("admin_dashboard"))
 
 
+# Ensure DB and seed data exist before serving requests in both local and
+# production (gunicorn) runs.
+init_db()
+
+
 # ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
@@ -400,7 +461,3 @@ def admin_delete_project(project_id: int):
 if __name__ == "__main__":
     debug = os.environ.get("FLASK_DEBUG", "0") == "1"
     app.run(debug=debug, host="0.0.0.0", port=5000)
-
-
-# Ensure DB and seed data exist in both local and production (gunicorn) runs.
-init_db()
