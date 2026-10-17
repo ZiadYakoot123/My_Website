@@ -48,6 +48,11 @@ gunicorn app:app
 	- `ADMIN_USERNAME` (optional)
 	- `ADMIN_PASSWORD` (optional)
 
+The included `render.yaml` is configured for Render's free web service. It stores
+SQLite in `/tmp`, so the site can start without a paid persistent disk. SQLite
+data on the free plan is ephemeral; use a paid persistent disk or an external
+database if admin data must survive redeploys.
+
 ### 3) Add your custom domain in Render
 
 1. In your Render service, open **Settings > Custom Domains**.
